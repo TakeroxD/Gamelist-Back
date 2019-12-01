@@ -10,7 +10,7 @@ const gameSchema = mongoose.Schema({
 	releasedate : {type:String},
 	rating : {type:String},
 	plot : {type:String},
-	reviews : [review:{type:String}]
+	reviews : [{review:{type:String}}]
 })
 
 const Game = mongoose.model('Game',gameSchema)
