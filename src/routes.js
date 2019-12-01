@@ -3,8 +3,6 @@ const control = require('./controllers/controls.js')
 
 const router = express.Router()
 
-router.get('/',)
-
 router.post('/signup',control.createUser)
 router.post('/login',control.login)
 
