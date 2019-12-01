@@ -76,7 +76,8 @@ const updateUser = function(req,res){
 								'mixerid',
 								'youtubeid',
 								'twitterid',
-								'instagramid'
+								'instagramid',
+								'facebookid'
 							]
 	const isValidUpdate = updates.every((update) => allowedUpdates.includes(update))
 	if(!isValidUpdate){

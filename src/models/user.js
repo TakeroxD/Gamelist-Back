@@ -40,6 +40,7 @@ const userSchema = mongoose.Schema({
 	youtubeid: {type:String},
 	twitterid: {type:String},
 	instagramid: {type:String},
+	facebookid: {type:String},
 	//TOKENS
 	tokens:[{
 		token:{type:String,required:true}
