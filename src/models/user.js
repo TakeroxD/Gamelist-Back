@@ -3,6 +3,8 @@ const validator = require('validator')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+var secret = process.env.SECRET || require('../config.js').secret
+
 //
 //USER SCHEMA
 //
@@ -78,15 +80,17 @@ userSchema.pre('save',function(next){
 	}
 })
 
-userSchema.methods.generateToken = function(){
-	const user = this
-	const token = jwt.sign({_id:username,_id.toString()},'thisIsFuckingSecret',{expiresIn: '30 days'})
-	user.tokens = user.tokens.concat({token})
-	user.save().then(function(user){
-		return token
-	}).catch(function(error){
-		return error
-	})
+userSchema.methods.generateToken = function() {
+  const user = this
+  const token = jwt.sign({ _id: user._id.toString() }, secret, { expiresIn: '7 days'})
+  user.tokens = user.tokens.concat({ token })
+  return new Promise(function( resolve, reject) {
+    user.save().then(function(user){
+      return resolve(token)
+    }).catch(function(error) {
+      return reject(error)
+    })
+  })
 }
 
 
