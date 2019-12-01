@@ -19,7 +19,7 @@ const userSchema = mongoose.Schema({
 				}
 			}
 	},
-	password: {type:String,required:true,trim:true,minlength:7}
+	password: {type:String,required:true,trim:true,minlength:7},
 	//OPTIONAL FOR ID
 	about : {type:String},
 	sex : {type:String},
