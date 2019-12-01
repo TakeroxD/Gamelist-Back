@@ -1,22 +1,31 @@
 const express = require('express')
 const control = require('./controllers/controls.js')
+const auth = require('./middleware/auth.js')
 
 const router = express.Router()
 
 router.post('/signup',control.createUser)
 router.post('/login',control.login)
+router.post('/logout',auth,control.logout)
 
-router.get('/users',control.getUsers)
-router.get('/user/:id',control.getUser)
-router.patch('/user/:id',control.updateUser)
-router.delete('/user/:id',control.deleteUser)
+router.get('/users',auth,control.getUsers)
+router.get('/user/:id',auth,control.getUser)
+router.patch('/user/:id',auth,control.updateUser)
+router.delete('/user/:id',auth,control.deleteUser)
 
-router.post('/addGame',control.createGame)
+router.post('/adminGame',control.createGame)
+router.patch('/adminGame/:id',control.updateGame)
+router.delete('/adminGame/:id',control.deletegame)
 
 router.get('/games',control.getGames)
 router.get('/game/:id',control.getGame)
-router.patch('/game/:id',control.updateGame)
-router.delete('/game/:id',control.deletegame)
+
+router.get('*', function(req,res){
+	res.send({
+		error:'Invalid route'
+	})
+})
+
 
 module.exports = router
 
