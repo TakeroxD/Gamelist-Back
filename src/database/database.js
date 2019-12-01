@@ -4,7 +4,8 @@ var connectionURL = process.env.DATABASE_URL || require('../config.js').connecti
 
 mongoose.connect(connectionURL,{
 	useNewUrlParser: true,
-	useCreateIndex: true
+	useCreateIndex: true,
+	useUnifiedTopology: true
 }).then(function(){
 	console.log("Connected to DB successful")
 }).catch(function(error){
