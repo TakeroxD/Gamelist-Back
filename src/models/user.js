@@ -80,7 +80,7 @@ userSchema.pre('save',function(next){
 			return next(error)
 		})
 	} else {
-		nest()
+		next()
 	}
 })
 
