@@ -26,8 +26,8 @@ const userSchema = mongoose.Schema({
 	location : {type:String},
 	//USEFUL INFO
 	favconsole : {type:String},
-	toplay : [{game: {type:String}}],
-	played : [{game:{type:String}}],
+	toplay : [{game: {type:String,unique:true}}],
+	played : [{game:{type:String,unique:true}}],
 	//SOCIAL NETWORKS
 	steamid: {type:String},
 	xboxid: {type:String},
