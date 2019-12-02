@@ -55,6 +55,7 @@ const createUser = function(req,res){
 const updateUserPlayedGames = function(req,res){
 	const _id = req.params.id
 	User.findById(_id).then(function(user){
+		console.log(user)
 		user.played.concat({"game":req.body.game});
 		user.save();
 		return res.send()
@@ -66,6 +67,7 @@ const updateUserPlayedGames = function(req,res){
 const updateUserToPlayGames = function(req,res){
 	const _id = req.params.id
 	User.findById(_id).then(function(user){
+		console.log(user)
 		user.toplay.concat({"game":req.body.game});
 		user.save();
 		return res.send()
