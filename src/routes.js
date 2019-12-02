@@ -14,6 +14,7 @@ router.patch('/user/:id',auth,control.updateUser)
 router.delete('/user/:id',auth,control.deleteUser)
 
 router.post('/adminGame',control.createGame)
+router.post('/adminGames',control.createGames)
 router.patch('/adminGame/:id',control.updateGame)
 router.delete('/adminGame/:id',control.deleteGame)
 

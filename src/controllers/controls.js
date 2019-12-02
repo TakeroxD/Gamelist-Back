@@ -136,6 +136,17 @@ const createGame = function(req,res){
 	})
 }
 
+const createGames = function(req,res){
+	for(var i=0;i<req.body.length;i++){
+	const game = new Game(req.body[i])
+	game.save().then(function(){
+		return res.send('Juego creado' + game)
+	}).catch(function(error){
+		return res.status(405).send(error)
+	})
+	}
+}
+
 const updateGame = function(req,res){
 	const _id = req.params.id
 	const updates = Object.keys(req.body)
