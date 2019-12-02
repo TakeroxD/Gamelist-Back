@@ -204,6 +204,8 @@ module.exports={
 	getUser,
 	createUser,
 	updateUser,
+	updateUserPlayedGames,
+	updateUserToPlayGames,
 	deleteUser,
 	getGames,
 	getGame,
