@@ -49,10 +49,10 @@ const userSchema = mongoose.Schema({
 
 })
 
-userSchema.statics.findByCredentials = function(userormail,password){
+userSchema.statics.findByCredentials = function(username,password){
 	return new Promise(function(resolve,reject){
-		console.log(userormail)
-		User.find({userormail}).then(function(user){
+		console.log(username)
+		User.findOne({username}).then(function(user){
 			console.log(user)
 			if(!user){
 				return reject('User does not exist')
