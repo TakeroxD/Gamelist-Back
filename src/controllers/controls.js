@@ -198,6 +198,7 @@ module.exports={
 	getGames,
 	getGame,
 	createGame,
+	createGames,
 	updateGame,
 	deleteGame
 }                                               
