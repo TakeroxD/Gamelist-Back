@@ -27,14 +27,6 @@ const logout = function(req, res) {
   })
 }
 
-const getUsers = function(req,res){
-	User.find({}).then(function(user){
-		return res.send(user)
-	}).catch(function(error){
-		return res.status(402).send(error)
-	})
-}
-
 const getUser = function(req,res){
 	_id = req.params.id
 	User.findById(_id).then(function(user){
@@ -179,7 +171,6 @@ const deleteGame = function(req,res){
 module.exports={
 	login,
 	logout,
-	getUsers,
 	getUser,
 	createUser,
 	updateUser,
