@@ -58,7 +58,7 @@ const updateUserPlayedGames = function(req,res){
 		console.log(user)
 		user.played.concat({"game":req.body.game});
 		user.save();
-		return res.send()
+		return res.send(user)
 	}).catch(function(error){
 		return res.send(error)
 	})
@@ -70,7 +70,7 @@ const updateUserToPlayGames = function(req,res){
 		console.log(user)
 		user.toplay.concat({"game":req.body.game});
 		user.save();
-		return res.send()
+		return res.send(user)
 	}).catch(function(error){
 		return res.send(error)
 	})
