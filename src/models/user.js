@@ -52,6 +52,7 @@ const userSchema = mongoose.Schema({
 userSchema.statics.findByCredentials = function(userormail,password){
 	return new Promise(function(resolve,reject){
 		User.findOne({userormail}).then(function(user){
+			console.log(user)
 			if(!user){
 				reject('User does not exist')
 			}
