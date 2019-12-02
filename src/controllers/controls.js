@@ -190,6 +190,7 @@ const updateGame = function(req,res){
 
 const addGameReview = function(req,res){
 	const _id=req.params.id
+	console.log(_id)
 	Game.findById(_id).then(function(game){
 		game.addReview(req.body.review);
 		return res.send(user)
