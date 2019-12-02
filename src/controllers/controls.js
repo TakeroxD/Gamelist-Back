@@ -52,6 +52,18 @@ const createUser = function(req,res){
 	})
 }
 
+const updateUserPlayedGames = function(req,res){
+	const _id = req.params.id
+	User.findById(_id).played.push(req.body);
+	User.save();
+}
+
+const updateUserToPlayGames = function(req,res){
+	const _id = req.params.id
+	User.findById(_id).toplay.push(req.body);
+	User.save();
+}
+
 const updateUser = function(req,res){
 	const _id = req.params.id
 	const updates = Object.keys(req.body)
@@ -63,8 +75,6 @@ const updateUser = function(req,res){
 								'sex',
 								'location',
 								'favconsole',
-								'toplay',
-								'played',
 								'steamid',
 								'xboxid',
 								'playstationid',

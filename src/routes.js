@@ -11,6 +11,8 @@ router.post('/logout',auth,control.logout)
 router.get('/users',auth,control.getUsers)
 router.get('/user/:id',auth,control.getUser)
 router.patch('/user/:id',auth,control.updateUser)
+router.post('/user/toplay/:id',auth,control.updateUserToPlayGames)
+router.post('/user/played/:id',auth,control.updateUserPlayedGames)
 router.delete('/user/:id',auth,control.deleteUser)
 
 router.post('/adminGame',control.createGame)
