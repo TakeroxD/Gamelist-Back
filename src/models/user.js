@@ -85,6 +85,7 @@ userSchema.pre('save',function(next){
 })
 
 userSchema.methods.generateToken = function() {
+	console.log("generating token")
   const user = this
   const token = jwt.sign({ _id: user._id.toString() }, secret, { expiresIn: '7 days'})
   user.tokens = user.tokens.concat({ token })
