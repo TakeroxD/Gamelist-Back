@@ -111,7 +111,7 @@ userSchema.methods.addToPlay = function(data) {
 
 userSchema.methods.addPlayed = function(data) {
   const user = this
-  user.played = user.played.concat({ data })
+  user.played = user.played.concat({ "game":data })
   console.log(user)
   return new Promise(function( resolve, reject) {
     user.save().then(function(user){
