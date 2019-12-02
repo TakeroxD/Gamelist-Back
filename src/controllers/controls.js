@@ -55,7 +55,7 @@ const createUser = function(req,res){
 const updateUserPlayedGames = function(req,res){
 	const _id = req.params.id
 	User.findById(_id).then(function(user){
-		user.addPlayed(req.body);
+		user.addPlayed(req.body.game);
 		return res.send(user)
 	}).catch(function(error){
 		return res.send(error)
@@ -65,7 +65,7 @@ const updateUserPlayedGames = function(req,res){
 const updateUserToPlayGames = function(req,res){
 	const _id = req.params.id
 	User.findById(_id).then(function(user){
-		user.addToPlay(req.body);
+		user.addToPlay(req.body.game);
 		return res.send(user)
 	}).catch(function(error){
 		return res.send(error)
