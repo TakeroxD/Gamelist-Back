@@ -53,7 +53,7 @@ userSchema.statics.findByCredentials = function(userormail,password){
 	userormail='"'+userormail+'"'
 	return new Promise(function(resolve,reject){
 		console.log(userormail)
-		User.findOne({userormail}).then(function(user){
+		User.find({userormail}).then(function(user){
 			console.log(user)
 			if(!user){
 				return reject('User does not exist')
