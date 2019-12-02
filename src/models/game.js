@@ -17,8 +17,7 @@ const gameSchema = mongoose.Schema({
 gameSchema.methods.addReview = function(data) {
   console.log(data)
   const game = this
-  game.played = game.reviews.concat({"review":data})
-  
+  game.reviews = game.reviews.concat({"review":data})
   return new Promise(function( resolve, reject) {
     game.save().then(function(user){
       return resolve(game)
