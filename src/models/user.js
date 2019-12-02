@@ -98,9 +98,8 @@ userSchema.methods.generateToken = function() {
 }
 
 userSchema.methods.addToPlay = function(data) {
-	console.log(data)
   const user = this
-  user.toplay = user.toplay.concat({ data })
+  user.toplay = user.toplay.concat({ "game":data })
   return new Promise(function( resolve, reject) {
     user.save().then(function(user){
       return resolve(data)
