@@ -50,7 +50,6 @@ const userSchema = mongoose.Schema({
 })
 
 userSchema.statics.findByCredentials = function(userormail,password){
-	userormail='"'+userormail+'"'
 	return new Promise(function(resolve,reject){
 		console.log(userormail)
 		User.find({userormail}).then(function(user){
