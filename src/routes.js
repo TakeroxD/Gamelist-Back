@@ -22,6 +22,7 @@ router.delete('/adminGame/:id',control.deleteGame)
 
 router.get('/games',control.getGames)
 router.get('/game/:id',control.getGame)
+router.post('/game/:id',control.addGameReview)
 
 router.get('*', function(req,res){
 	res.send({

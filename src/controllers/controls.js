@@ -170,8 +170,7 @@ const updateGame = function(req,res){
 	const updates = Object.keys(req.body)
 	const allowedUpdates =  [
 								'image',
-								'rating',
-								'reviews'
+								'rating'
 							]
 	const isValidUpdate = updates.every((update) => allowedUpdates.includes(update))
 	if(!isValidUpdate){
@@ -187,6 +186,17 @@ const updateGame = function(req,res){
 	}).catch(function(error){
 		return res.status(406).send(error)
 	})
+}
+
+const addGameReview = function(req,res){
+	const _id=req.params.id
+	Game.findById(_id).then(function(game){
+		game.addReview(req.body.review);
+		return res.send(user)
+	}).catch(function(error){
+		return res.send(error)
+	})
+
 }
 
 const deleteGame = function(req,res){
@@ -220,5 +230,6 @@ module.exports={
 	createGame,
 	createGames,
 	updateGame,
+	addGameReview,
 	deleteGame
 }                                               
