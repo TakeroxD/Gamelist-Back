@@ -49,10 +49,10 @@ const userSchema = mongoose.Schema({
 
 })
 
-userSchema.statics.findByCredentials = function(userormail,password){
+userSchema.statics.findByCredentials = function(username,password){
 	return new Promise(function(resolve,reject){
-		console.log(userormail)
-		User.find({userormail}).then(function(user){
+		console.log(username)
+		User.findOne({username}).then(function(user){
 			console.log(user)
 			if(!user){
 				return reject('User does not exist')
@@ -80,7 +80,7 @@ userSchema.pre('save',function(next){
 			return next(error)
 		})
 	} else {
-		nest()
+		next()
 	}
 })
 
@@ -88,6 +88,7 @@ userSchema.methods.generateToken = function() {
   const user = this
   const token = jwt.sign({ _id: user._id.toString() }, secret, { expiresIn: '7 days'})
   user.tokens = user.tokens.concat({ token })
+  console.log(user)
   return new Promise(function( resolve, reject) {
     user.save().then(function(user){
       return resolve(token)
